@@ -1,3 +1,13 @@
+-- Followed the link below to connect to AWS:
+-- https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_RDS_Configuring.html
+-- To create a DB instance
+-- Sign in to the AWS Management Console and open the Amazon RDS console at https://console.aws.amazon.com/rds/.
+-- In the upper-right corner of the Amazon RDS console, choose the AWS Region in which you want to create the DB instance.
+-- In the navigation pane, choose Databases.
+-- Choose Create database.
+-- In Choose a database creation method, select Standard Create.
+-- In Engine options, choose the engine type: MariaDB, Microsoft SQL Server, MySQL, Oracle, or PostgreSQL. 
+
 CREATE DATABASE tc1_Vimala_Murthy;
 USE tc1_Vimala_Murthy;
 CREATE TABLE tekcampers (
