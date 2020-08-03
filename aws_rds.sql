@@ -1,9 +1,22 @@
-USE students;
-SHOW TABLES;
+-- Followed the link below to connect to AWS:
+-- https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_RDS_Configuring.html
+-- To create a DB instance
+-- Sign in to the AWS Management Console and open the Amazon RDS console at https://console.aws.amazon.com/rds/.
+-- In the upper-right corner of the Amazon RDS console, choose the AWS Region in which you want to create the DB instance.
+-- In the navigation pane, choose Databases.
+-- Choose Create database.
+-- In Choose a database creation method, select Standard Create.
+-- In Engine options, choose the engine type: MariaDB, Microsoft SQL Server, MySQL, Oracle, or PostgreSQL. 
+
 CREATE DATABASE tc1_Vimala_Murthy;
 USE tc1_Vimala_Murthy;
-CREATE TABLE tekcampers AS SELECT * FROM 
-students.tekcamp01;
+CREATE TABLE tekcampers (
+	id INT,
+    first_name VARCHAR(20),
+    last_name VARCHAR(20),
+    gender CHAR(1),
+    education VARCHAR(20)
+    );
 INSERT INTO tekcampers (id, first_name, last_name, gender, education) 
 VALUES (28, "Vimala", "Murthy", "F", "Masters");
 INSERT INTO tekcampers (id, first_name, last_name, gender, education) 
@@ -17,88 +30,41 @@ VALUES (32, "Cody", "Clark", "M", "Null"),
         (35, "John","Bozarov", "M", "Null"),
         (36, "Justin", "Cheng", "M", "Null"),
         (37, "Monica", "Howard", "F", "Null"),
-        (38,"Tyler","Clements", "M", "Null");
-SELECT * FROM tekcampers ORDER BY first_name;
-SET SQL_SAFE_UPDATES = 0;
-DELETE FROM tekcampers WHERE id = 6;
-DELETE FROM tekcampers WHERE id = 9;
-DELETE FROM tekcampers WHERE id = 20;
-UPDATE tekcampers SET education ='NULL', gender='M'
-	WHERE id = 31;
-UPDATE tekcampers SET education ='Bachelors', gender='F'
-	WHERE id = 1;
-UPDATE tekcampers SET education ='Bachelors', gender='M'
-	WHERE id = 6;
-UPDATE tekcampers SET education ='Associates', gender='M'
-	WHERE id = 8;
-UPDATE tekcampers SET education ='College', gender='M'
-	WHERE id = 24;
-UPDATE tekcampers SET education ='College', gender='M'
-	WHERE id = 32;
-UPDATE tekcampers SET education ='Null', gender='M'
-	WHERE id = 33;
-UPDATE tekcampers SET education ='Null', gender='M'
-	WHERE id = 2;
-UPDATE tekcampers SET education ='College', gender='M'
-	WHERE id = 15;
-UPDATE tekcampers SET education ='Bachelors', gender='M'
-	WHERE id = 34;
-UPDATE tekcampers SET education ='Bachelors', gender='F'
-	WHERE id = 4;
-UPDATE tekcampers SET education ='NULL', gender='M'
-	WHERE id = 29;
-UPDATE tekcampers SET education ='Bachelors', gender='M'
-	WHERE id = 35;
-UPDATE tekcampers SET education ='Bachelors', gender='M'
-	WHERE id = 16;
-UPDATE tekcampers SET education ='College', gender='M'
-	WHERE id = 12;
-UPDATE tekcampers SET education ='College', gender='M'
-	WHERE id = 36;
-UPDATE tekcampers SET education ='Bachelors', gender='F'
-	WHERE id = 11;
-UPDATE tekcampers SET education ='High School', gender='M'
-	WHERE id = 14;
-UPDATE tekcampers SET education ='High School', gender='M'
-	WHERE id = 30;
-UPDATE tekcampers SET education ='Null', gender='M'
-	WHERE id = 23;
-UPDATE tekcampers SET education ='College', gender='M'
-	WHERE id = 7;
-UPDATE tekcampers SET education ='Masters', gender='M'
-	WHERE id = 21;
-UPDATE tekcampers SET education ='Bachelors', gender='M'
-	WHERE id = 18;
-UPDATE tekcampers SET education ='Null', gender='M'
-	WHERE id = 22;
-UPDATE tekcampers SET education ='Null', gender='F'
-	WHERE id = 37;
-UPDATE tekcampers SET education ='Masters', gender='F'
-	WHERE id = 3;
-UPDATE tekcampers SET education ='Doctorate', gender='F'
-	WHERE id = 10;
-UPDATE tekcampers SET education ='Associates', gender='F'
-	WHERE id = 17;
-UPDATE tekcampers SET education ='Bachelors', gender='F'
-	WHERE id = 5;
-UPDATE tekcampers SET education ='Null', gender='F'
-	WHERE id = 27;
-UPDATE tekcampers SET education ='Null', gender='M'
-	WHERE id = 38;
-    UPDATE tekcampers SET education ='Masters', gender='F'
-	WHERE id = 13;
-UPDATE tekcampers SET education ='College', gender='M'
-	WHERE id = 19;
-UPDATE tekcampers SET education ='Masters', gender='F'
-	WHERE id = 28;
-UPDATE tekcampers SET education ='High School', gender='M'
-	WHERE id = 25;
-SELECT * FROM tekcampers ORDER BY first_name;
+        (38,"Tyler","Clements", "M", "Null");  
+INSERT INTO tekcampers (id, first_name, last_name, gender, education) 
+	VALUES (1, "Abigail", "Swigert", "F", "Bachelors"),
+		(2, "Gabe","Chavez","M", "Null"),
+        (3,"Nancy","Golden","F","Masters"),
+        (4, "Jessica", "Ulysse", "F", "Bachelors"),
+        (5, "Sabitha", "Radhakrishnan", "F", "Bachelors"),
+        (6, "Adam", "Rice", "M", "Bachelors"),
+        (7, "Marcelo", "Barbosa", "M", "College"),
+        (8, "Caleb", "Waters", "M", "Associates"),
+        (9,"Norita","Sieffert","F","Doctorate"),
+        (10,"Katherine","Kim","F","Bachelors")
+        ;
+INSERT INTO tekcampers (id, first_name, last_name, gender, education) 
+	VALUES (12, "Julian", "Ladd", "M", "College"),
+		(13, "Vani","Muppuru","F", "Masters"),
+        (14,"Kevin","Ibanez","M","High School"),
+        (15, "George", "Torres", "M", "College"),
+        (16, "Jose", "Moreno", "M", "Bachelors"),
+        (17, "Phoenix", "Shane", "F", "Associates"),
+        (18, "Mathew", "Castiglione", "M", "Bachelors"),
+        (19, "Victor", "Betts", "M", "College"),
+        (21,"Mathew","Choat","M","Masters"),
+        (22,"Michael","Kinney","M","Null"),
+        (23, "Korey", "Brooks", "M", "Null"),
+        (24, "Christian", "Gonzalez", "M", "College"),
+        (25, "Zachary", "Johnson", "M", "High School"),
+        (27, "Sarah", "Bates", "F", "Null")
+        ;
+SELECT * FROM tekcampers;
 SELECT * FROM tekcampers
  WHERE LENGTH(last_name) > 7;
-SELECT * FROM tekcampers
+ SELECT * FROM tekcampers
  ORDER BY first_name;
-SELECT * FROM tekcampers
+ SELECT * FROM tekcampers
  ORDER BY last_name;
  SELECT * FROM tekcampers
  WHERE gender ="M";
@@ -115,24 +81,21 @@ SELECT * FROM tekcampers
     education ="Null";
 CREATE TABLE ta_Dylan_Fellows AS
 	SELECT * FROM tekcampers;
-SET SQL_SAFE_UPDATES = 0;
+    SET SQL_SAFE_UPDATES = 0;
 DELETE FROM ta_Dylan_Fellows
 	WHERE (id <5 AND id <> 3);
 SELECT * FROM ta_Dylan_Fellows;
 SET SQL_SAFE_UPDATES = 0;
 DELETE FROM ta_Dylan_Fellows
 	WHERE (id BETWEEN 6 AND 8);
-SELECT * FROM ta_Dylan_Fellows;
-SET SQL_SAFE_UPDATES = 0;
 DELETE FROM ta_Dylan_Fellows
 	WHERE (id =16);
-SELECT * FROM ta_Dylan_Fellows;
-SET SQL_SAFE_UPDATES = 0;
 DELETE FROM ta_Dylan_Fellows
 	WHERE id =12;
 DELETE FROM ta_Dylan_Fellows
 	WHERE id =17;
-    SET SQL_SAFE_UPDATES = 0;
+SELECT * FROM ta_Dylan_Fellows;
+SET SQL_SAFE_UPDATES = 0;
 DELETE FROM ta_Dylan_Fellows
 	WHERE id BETWEEN 20 AND 27;
 SELECT * FROM ta_Dylan_Fellows;
@@ -140,6 +103,11 @@ SET SQL_SAFE_UPDATES = 0;
 DELETE FROM ta_Dylan_Fellows
 	WHERE id BETWEEN 30 AND 38;
 SELECT * FROM ta_Dylan_Fellows;
+INSERT INTO ta_Dylan_Fellows 
+	(id, first_name, last_name, gender, education) 
+	VALUES 
+		 (4, "Jessica", "Ulysse", "F", "Bachelors");
+SELECT * FROM ta_Dylan_Fellows ORDER BY first_name;
 CREATE TABLE hobbies (
 	hobbies_id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
     hobby_name VARCHAR(25),
@@ -157,10 +125,7 @@ INSERT INTO hobbies (hobby_name)
     ("Golfing"),
     ("Cattle Rustling"),
     ("Gardening"), 
-    ("Yoga")
-;
-INSERT INTO hobbies (hobby_name)
- VALUES 
+    ("Yoga"),
 	("Running"), 
     ("Video games"),
     ("Work out"),
@@ -170,17 +135,11 @@ INSERT INTO hobbies (hobby_name)
     ("Writing"),
     ("Cooking"),
     ("Eating"),
-    ("Music")
-;
-INSERT INTO hobbies (hobby_name)
- VALUES 
+    ("Music"),
 	("Hockey"), 
     ("Soccer"),
     ("Longboarding"),
-    ("Growing hot peppers")
-    ;
-INSERT INTO hobbies (hobby_name)
- VALUES 
+    ("Growing hot peppers"),
 	("Reading"),
 	("Soccer"), 
     ("Eating"),
